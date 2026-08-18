@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lesson-book"
-version = "0.1.0"
-description = "Tuition memory for traders: a local-first, deterministic mistake ledger with situation matching — before you act, it reminds you where you paid before."
+version = "0.1.1"
+description = "Tuition memory for traders: a local-first, deterministic mistake ledger with situation matching 鈥?before you act, it reminds you where you paid before."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -30,3 +30,4 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
