@@ -2,11 +2,11 @@
 
 **Tuition memory for traders.** A local-first, deterministic mistake ledger:
 record what each mistake cost you, tag it, and `lb match` reminds you of it
-the next time the same situation shows up — **before** you act. Python
+the next time the same situation shows up 鈥?**before** you act. Python
 3.11+, **zero dependencies**, Windows / Linux / macOS. No LLM, no cloud, no
 statistics: the reminder is reproducible and auditable.
 
-**Status:** v0.1 — alpha. The matching logic is distilled from a production
+**Status:** v0.1 鈥?alpha. The matching logic is distilled from a production
 trading system's lesson-matching module; this standalone package is new.
 
 ## Why this exists
@@ -14,7 +14,7 @@ trading system's lesson-matching module; this standalone package is new.
 Your trading system has a memory problem: it forgets. The mistake you paid
 1,200 for last month looks like a fresh opportunity today, because nothing
 stood between the idea and the order. Trading journals solve the *recording*
-half — they are ledgers of what happened. `lesson-book` solves the
+half 鈥?they are ledgers of what happened. `lesson-book` solves the
 *retrieval* half: it keeps the tuition in a form that can speak up when the
 same situation appears again.
 
@@ -23,7 +23,7 @@ Two design commitments make it different from journaling apps and LLM
 
 1. **Deterministic, not statistical.** Scoring is a fixed weighted formula
    (code +3, industry +2, market cap +1, volatility proximity bonus, tag
-   overlap bonus). Same situation, same reminder, every time — the opposite
+   overlap bonus). Same situation, same reminder, every time 鈥?the opposite
    of an LLM memory that improvises.
 2. **Local-first and verifiable.** The book is a plain append-only JSONL
    file in your repo. `git log` on it *is* your audit trail; nothing ever
@@ -31,7 +31,7 @@ Two design commitments make it different from journaling apps and LLM
 
 ## Philosophy
 
-**Tuition is capital — the system does not forget what you paid for, and it
+**Tuition is capital 鈥?the system does not forget what you paid for, and it
 reminds you before you pay again.**
 
 This is the checklist culture of aviation and medicine, applied to trading:
@@ -45,8 +45,8 @@ asks you to imagine, before acting, that you already failed and explain why.
 
 The [IOM (1999), *To Err Is Human*](https://nap.nationalacademies.org/catalog/9728/to-err-is-human-building-a-safer-health-system)
 framing applies directly: errors are a system problem, not a character
-flaw. The book exists to improve the system — classification, review and
-retrieval — never to punish the person. That is why records carry `cost`
+flaw. The book exists to improve the system 鈥?classification, review and
+retrieval 鈥?never to punish the person. That is why records carry `cost`
 (a number, not a shame) and why the tool classifies but never enforces:
 rules, positions and limits stay with you.
 
@@ -65,7 +65,7 @@ python examples/demo.py   # record, match, review on a scratch book
 Your own book:
 
 ```bash
-# record a mistake — classification happens via the rule table
+# record a mistake 鈥?classification happens via the rule table
 lb add --book book.jsonl \
   --title "bought into the open gap" \
   --issue execution_failed --error-category price_limit \
@@ -97,7 +97,7 @@ lb review --book book.jsonl --day 2026-08-01 --out reviews/
 
 ## The book
 
-`book.jsonl` — append-only, one JSON record per line:
+`book.jsonl` 鈥?append-only, one JSON record per line:
 
 ```json
 {"schema_version": "lesson_book.lesson.v1", "record_id": "...",
@@ -116,11 +116,11 @@ Matching score (deterministic):
 | same code | +3.0 |
 | same industry | +2.0 |
 | same market cap | +1.0 |
-| volatility proximity | up to +1.5 (decays 5× the gap) |
+| volatility proximity | up to +1.5 (decays 5脳 the gap) |
 | tag overlap | +0.5 per tag, capped at +1.5 |
 
 A primary match (code / industry / market cap) is required for a non-zero
-score — the book never speaks up about situations it has no grounds to
+score 鈥?the book never speaks up about situations it has no grounds to
 compare.
 
 ## Classification rules
@@ -130,15 +130,15 @@ compare.
 
 | issue | error_category | category | priority |
 | --- | --- | --- | --- |
-| `execution_without_action_plan` | — | `planning_gap` | P1 |
+| `execution_without_action_plan` | 鈥?| `planning_gap` | P1 |
 | `execution_failed` | `price_limit` | `price_limit_rejected` | P1 |
 | `execution_failed` | `trading_time_closed` | `trading_time_closed` | P1 |
 | `execution_failed` | `receipt_reader_error` | `receipt_reader_error` | P1 |
-| `execution_failed` | — | `execution_failure` | P1 |
-| anything else | — | `unclassified` | P2 |
+| `execution_failed` | 鈥?| `execution_failure` | P1 |
+| anything else | 鈥?| `unclassified` | P2 |
 
 Unclassified records are P2 with "review manually and extend the rule table"
-— the taxonomy grows with you, never silently.
+鈥?the taxonomy grows with you, never silently.
 
 ## Development
 
@@ -152,9 +152,21 @@ and 3.12. Issues are handled on weekends; pull requests are welcome.
 
 ## Related work
 
-- [Klein (2007), Performing a Project Premortem (HBR)](https://hbr.org/2007/09/performing-a-project-premortem) — imagine the failure before it happens
-- [Gawande (2009), The Checklist Manifesto](https://en.wikipedia.org/wiki/The_Checklist_Manifesto) — checklists as error-rate reduction
-- [IOM (1999), To Err Is Human](https://nap.nationalacademies.org/catalog/9728/to-err-is-human-building-a-safer-health-system) — errors as system problems
+- [Klein (2007), Performing a Project Premortem (HBR)](https://hbr.org/2007/09/performing-a-project-premortem) 鈥?imagine the failure before it happens
+- [Gawande (2009), The Checklist Manifesto](https://en.wikipedia.org/wiki/The_Checklist_Manifesto) 鈥?checklists as error-rate reduction
+- [IOM (1999), To Err Is Human](https://nap.nationalacademies.org/catalog/9728/to-err-is-human-building-a-safer-health-system) 鈥?errors as system problems
+
+## Project family
+
+Part of [Foolproof Labs](https://github.com/foolproof-labs) — a toolchain
+against self-deception in quantitative research:
+
+- [pit-adjuster](https://github.com/foolproof-labs/pit-adjuster) — PIT back-adjustment with static forward-adjustment drift detection
+- [falsification-ledger](https://github.com/foolproof-labs/falsification-ledger) — pre-registration and falsification ledger
+- [factor-qc](https://github.com/foolproof-labs/factor-qc) — fail-closed backtest quality gate
+- [lesson-book](https://github.com/foolproof-labs/lesson-book) — tuition memory for traders
+- [lookahead-free](https://github.com/foolproof-labs/lookahead-free) — verifiable look-ahead-freedom checks
+- [ashare-data-immunity](https://github.com/foolproof-labs/ashare-data-immunity) — data immunity for A-share daily bars
 
 ## License
 
