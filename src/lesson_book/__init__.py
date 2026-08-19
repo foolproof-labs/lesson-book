@@ -1,7 +1,7 @@
 """Tuition memory: a local-first, deterministic mistake ledger.
 
 Record what each mistake cost you, tag it, and let ``match`` remind you of
-it the next time the same situation shows up 鈥?before you act.  No LLM, no
+it the next time the same situation shows up —before you act.  No LLM, no
 cloud, no statistics: just an append-only JSONL book and deterministic
 scoring, so the reminder is reproducible and auditable.
 """
