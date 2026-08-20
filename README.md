@@ -1,5 +1,12 @@
 # lesson-book
 
+## 中文说明
+
+`lesson-book` 是本地优先、可复现的交易经验记录工具，也可以用于 A 股研究
+和模拟交易流程。它记录错误、代价和标签，并在相似情境再次出现时给出提醒。
+匹配规则是固定的，不调用大模型、不上传云端，也不提供买卖建议；它的作用是
+让过去的经验在行动前被看见。
+
 **Tuition memory for traders.** A local-first, deterministic mistake ledger:
 record what each mistake cost you, tag it, and `lb match` reminds you of it
 the next time the same situation shows up —**before** you act. Python
