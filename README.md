@@ -1,5 +1,10 @@
 # lesson-book
 
+![PyPI version](https://img.shields.io/pypi/v/lesson-book.svg)
+![PyPI downloads](https://img.shields.io/pypi/dm/lesson-book.svg)
+![CI](https://github.com/foolproof-labs/lesson-book/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 ## 中文说明
 
 `lesson-book` 是本地优先、可复现的交易经验记录工具，也可以用于 A 股研究
