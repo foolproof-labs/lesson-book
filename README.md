@@ -9,6 +9,13 @@ statistics: the reminder is reproducible and auditable.
 **Status:** v0.1 —alpha. The matching logic is distilled from a production
 trading system's lesson-matching module; this standalone package is new.
 
+## 中文简介
+
+`lesson-book` 是本地优先、可复现的交易经验记录工具，也可以用于 A 股研究
+和模拟交易流程。它记录错误、代价和标签，并在相似情境再次出现时给出提醒。
+匹配规则是固定的，不调用大模型、不上传云端，也不提供买卖建议；它的作用是
+让过去的经验在行动前被看见。
+
 ## Why this exists
 
 Your trading system has a memory problem: it forgets. The mistake you paid
