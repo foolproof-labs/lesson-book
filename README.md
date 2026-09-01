@@ -2,7 +2,7 @@
 
 ![PyPI version](https://img.shields.io/pypi/v/lesson-book.svg)
 ![PyPI downloads](https://img.shields.io/pypi/dm/lesson-book.svg)
-![CI](https://github.com/foolproof-labs/lesson-book/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/holdout-labs/lesson-book/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## 中文说明
@@ -170,15 +170,15 @@ and 3.12. Issues are handled on weekends; pull requests are welcome.
 
 ## Project family
 
-Part of [Foolproof Labs](https://github.com/foolproof-labs) — a toolchain
+Part of [Holdout](https://github.com/holdout-labs) — a toolchain
 against self-deception in quantitative research:
 
-- [pit-adjuster](https://github.com/foolproof-labs/pit-adjuster) — PIT back-adjustment with static forward-adjustment drift detection
-- [falsification-ledger](https://github.com/foolproof-labs/falsification-ledger) — pre-registration and falsification ledger
-- [factor-qc](https://github.com/foolproof-labs/factor-qc) — fail-closed backtest quality gate
-- [lesson-book](https://github.com/foolproof-labs/lesson-book) — tuition memory for traders
-- [lookahead-free](https://github.com/foolproof-labs/lookahead-free) — verifiable look-ahead-freedom checks
-- [ashare-data-immunity](https://github.com/foolproof-labs/ashare-data-immunity) — data immunity for A-share daily bars
+- [pit-adjuster](https://github.com/holdout-labs/pit-adjuster) — PIT back-adjustment with static forward-adjustment drift detection
+- [falsification-ledger](https://github.com/holdout-labs/falsification-ledger) — pre-registration and falsification ledger
+- [factor-qc](https://github.com/holdout-labs/factor-qc) — fail-closed backtest quality gate
+- [lesson-book](https://github.com/holdout-labs/lesson-book) — tuition memory for traders
+- [lookahead-free](https://github.com/holdout-labs/lookahead-free) — verifiable look-ahead-freedom checks
+- [ashare-data-immunity](https://github.com/holdout-labs/ashare-data-immunity) — data immunity for A-share daily bars
 
 Sister org: [Metabolism Tools](https://github.com/metabolism-tools) — [`workspace-metabolism`](https://github.com/metabolism-tools/workspace-metabolism), policy-driven file lifecycle management for agentic workspaces.
 
