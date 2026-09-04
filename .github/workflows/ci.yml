@@ -34,10 +34,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install editable (deps for import check)
+        run: python -m pip install -e .
       - name: Version consistency (pyproject vs __version__)
         shell: bash
         run: |
-          PYTHONPATH=src python - <<'PY'
+          python - <<'PY'
           import tomllib, pathlib
           import lesson_book as pkg
           expected = tomllib.loads(pathlib.Path("pyproject.toml").read_text())["project"]["version"]
