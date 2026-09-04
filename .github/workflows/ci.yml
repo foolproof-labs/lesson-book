@@ -25,3 +25,31 @@ jobs:
           python -m pip install -e . pytest
       - name: Run tests
         run: python -m pytest -q
+
+  wheel-smoke:
+    name: wheel smoke + version consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Version consistency (pyproject vs __version__)
+        shell: bash
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          import tomllib, pathlib
+          import lesson_book as pkg
+          expected = tomllib.loads(pathlib.Path("pyproject.toml").read_text())["project"]["version"]
+          actual = pkg.__version__
+          assert expected == actual, f"pyproject {expected} != __version__ {actual}"
+          print("version OK:", actual)
+          PY
+      - name: Build wheel
+        run: python -m pip wheel --no-deps -w dist .
+      - name: Fresh-venv install smoke
+        run: |
+          python -m venv /tmp/smoke-venv
+          /tmp/smoke-venv/bin/pip install --quiet dist/*.whl
+          /tmp/smoke-venv/bin/lb version
+          /tmp/smoke-venv/bin/python -c "import importlib.metadata as m; print('installed dist:', m.version('lesson-book'))"
